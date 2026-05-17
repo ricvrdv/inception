@@ -1,7 +1,10 @@
 FROM debian:bookworm
 
-RUN apt-get update && apt-get install -y mariadb-server
+RUN apt-get update && apt-get install -y \
+    mariadb-server \
+    && rm -rf /var/lib/apt/lists/*
 
+COPY conf/ /etc/mysql/mariadb.conf.d/
 WORKDIR /usr/local/bin
 COPY tools/ .
 RUN chmod +x init_db.sh

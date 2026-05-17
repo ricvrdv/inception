@@ -2,7 +2,11 @@ NAME = inception
 
 COMPOSE = docker compose -f srcs/docker-compose.yml
 
-all: build up
+all: dirs build up
+
+dirs:
+	mkdir -p /home/rjesus-d/data/mariadb
+	mkdir -p /home/rjesus-d/data/wordpress
 
 build:
 	$(COMPOSE) build
@@ -15,7 +19,9 @@ down:
 
 clean:
 	$(COMPOSE) down -v --rmi all
+	rm -rf /home/rjesus-d/data/mariadb
+	rm -rf /home/rjesus-d/data/wordpress
 
 re: clean all
 
-.PHONY: all build up down clean re
+.PHONY: all dirs build up down clean re
