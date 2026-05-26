@@ -19,8 +19,8 @@ down:
 
 clean:
 	$(COMPOSE) down -v --rmi all
-	rm -rf /home/rjesus-d/data/mariadb
-	rm -rf /home/rjesus-d/data/wordpress
+	sudo rm -rf /home/rjesus-d/data/mariadb
+	sudo rm -rf /home/rjesus-d/data/wordpress
 
 re: clean all
 
