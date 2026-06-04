@@ -97,4 +97,3 @@ All persistent data is stored on the host machine at:
 **`make down`** stops containers but preserves all data. Restarting with `make up` resumes from the same state.
 
 **`make clean`** removes all containers, images, and data directories. The next `make` starts completely fresh.
-
