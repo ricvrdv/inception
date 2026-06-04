@@ -19,8 +19,11 @@ down:
 
 clean:
 	$(COMPOSE) down -v --rmi all
-	su -c "rm -rf /home/rjesus-d/data/mariadb /home/rjesus-d/data/wordpress"
 
-re: clean all
+fclean: clean
+	sudo rm -rf /home/rjesus-d/data/mariadb
+	sudo rm -rf /home/rjesus-d/data/wordpress
 
-.PHONY: all dirs build up down clean re
+re: fclean all
+
+.PHONY: all dirs build up down clean fclean re
