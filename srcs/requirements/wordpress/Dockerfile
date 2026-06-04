@@ -2,10 +2,10 @@ FROM debian:bookworm
 
 RUN apt-get update && apt-get install -y \
     php8.2-fpm \
-    php-mysql \
+    php8.2-mysql \
     php-curl \
     php-gd \
-    wget \
+    curl \
     mariadb-client \
     && rm -rf /var/lib/apt/lists/*
 
