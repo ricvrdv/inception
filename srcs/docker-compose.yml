@@ -1,6 +1,8 @@
+name: inception
 services:
   mariadb:
     build: ./requirements/mariadb
+    image: mariadb
     container_name: mariadb
     env_file: .env
     secrets:
@@ -14,6 +16,7 @@ services:
 
   wordpress:
     build: ./requirements/wordpress
+    image: wordpress
     container_name: wordpress
     env_file: .env
     secrets:
@@ -30,6 +33,7 @@ services:
 
   nginx:
     build: ./requirements/nginx
+    image: nginx
     container_name: nginx
     env_file: .env
     volumes:
@@ -44,7 +48,7 @@ services:
 
 networks:
   inception:
-    driver: bridge
+    name: inception
 
 volumes:
   mariadb_data:

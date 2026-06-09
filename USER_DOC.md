@@ -22,9 +22,14 @@ make
 make down
 ```
 
-**Full cleanup (removes all data):**
+**Remove containers, images, and volumes:**
 ```bash
 make clean
+```
+
+**Full cleanup (removes all data):**
+```bash
+make fclean
 ```
 
 ## Accessing the website
@@ -59,3 +64,8 @@ docker ps
 ```
 
 All three containers (`mariadb`, `wordpress`, `nginx`) should show as `Up`.
+
+**To help diagnose why a container might not be running:**
+```bash
+docker logs <container>
+```
